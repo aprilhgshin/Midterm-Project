@@ -1,7 +1,7 @@
 //Jonah Moon and April Shin
 //CSIS 137 Wed Night Class
 //Midterm Project
-//Step 4
+//Step 2, 4, 5
 
 #include "Semester.h"
 #include <iostream>
@@ -12,7 +12,7 @@ int main()
 {
 
 	// for step 2: Date.h
-
+	/*
 	Date d1;  //uses default args of constructor
 	Date d2(12, 27, 1992);
 	Date d3(0, 99, 8045);  //invalid 
@@ -43,7 +43,7 @@ int main()
 	cout << "Please enter a date in the following format: 01/16/2017" << endl;
 	cin >> d1;
 	cout << d1 << endl;
-
+	*/
 	// for step 4: Semester.h
 
 	Date start(7, 24, 2017);

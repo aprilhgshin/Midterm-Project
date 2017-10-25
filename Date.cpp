@@ -16,12 +16,12 @@ const int Date::days[] = { 0,31,28,31,30,31,30,31,31,30,31,30,31 };
 //global friend function (overloaded <<)
 ostream& operator<<(ostream &output, const Date &d)
 {
-	static string monthName[13] = { "", "January", "February",
+	/*static string monthName[13] = { "", "January", "February",
 		"March", "April", "May",
 		"June", "July", "August",
-		"September", "October", "November", "December" };
+		"September", "October", "November", "December" }; */
 
-	output << monthName[d.month] << ' ' << d.day << ", " << d.year;
+	output << /*monthName[*/d.month/*]*/ << "/" << d.day << "/" << d.year;
 
 	return output;  //allows for cascading calls
 }
