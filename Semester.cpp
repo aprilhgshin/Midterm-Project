@@ -10,14 +10,14 @@
 using namespace std;
 
 Semester::Semester(string name, Date start, Date end) 
-	:semesterName(name), startDate(start), endDate(end)
+	:startDate(start), endDate(end)
 {
-
+	setSemesterName(name);
 }
 
 ostream& operator<<(ostream& output, const Semester& info)
 {
-	cout << "Semester: " << info.semesterName << "(" << info.startDate << "-" << info.endDate << ")" << endl;
+	cout << "Semester: " << info.semesterName << " (" << info.startDate << "-" << info.endDate << ")" << endl;
 	return output;
 }
 
@@ -29,4 +29,14 @@ istream& operator>>(istream& input, Semester& info)
 	input.ignore();
 	input >> setw(10) >> info.endDate;
 	return input;
+}
+
+void Semester::setSemesterName(string name)
+{
+	semesterName = name;
+}
+
+string Semester::getSemesterName() const
+{
+	return semesterName;
 }

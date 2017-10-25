@@ -21,5 +21,7 @@ class Semester
 
 	public:
 		Semester(string, Date, Date);
+		void setSemesterName(string);
+		string getSemesterName() const;
 
 };
