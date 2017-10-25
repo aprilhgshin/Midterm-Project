@@ -1,3 +1,8 @@
+//Jonah Moon and April Shin
+//CSIS 137 Wed Night Class
+//Midterm Project
+//Step 2
+
 #include <iostream>
 #include <string>
 #include <iomanip>
@@ -142,6 +147,8 @@ void Date::helpIncrement()
 	}
 }
 
+/*  Need the TIME_H to complete below:
+
 bool Date::operator==(const Date& d) const
 {
 
@@ -171,3 +178,5 @@ bool Date::operator>=(const Date& number) const
 {
 
 }
+
+*/

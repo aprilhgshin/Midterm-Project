@@ -1,3 +1,8 @@
+//Jonah Moon and April Shin
+//CSIS 137 Wed Night Class
+//Midterm Project
+//Step 2
+
 #pragma once
 #define DATE_H
 
@@ -28,10 +33,10 @@ public:
 	const Date& operator+=(int);  //to increment date by multiple days
 	static bool leapYear(int);  //to determine if date is a leap year - static
 	bool endOfMonth(int)const;  //is date the end of the month (need to know for incrementing)
-	bool operator==(const Date&) const;
+	/*bool operator==(const Date&) const;
 	bool operator!=(const Date&) const;
 	bool operator<(const Date&) const;
 	bool operator>(const Date&) const;
 	bool operator<=(const Date&) const;
-	bool operator>=(const Date&) const;
+	bool operator>=(const Date&) const; */
 };

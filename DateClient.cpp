@@ -1,3 +1,8 @@
+//Jonah Moon and April Shin
+//CSIS 137 Wed Night Class
+//Midterm Project
+//Step 2
+
 #include <iostream>
 #include "Date.h"
 using namespace std;
@@ -30,6 +35,10 @@ int main()
 	cout << "d4++ is " << d4++ << endl;
 	cout << "d4 doesn't change until AFTER the postfix executes " << endl;
 	cout << "d4 is now " << d4 << endl;
+
+	cout << "Please enter a date in the following format: 01/16/2017" << endl;
+	cin >> d1;
+	cout << d1 << endl;
 
 	system("PAUSE");
 	return 0;
