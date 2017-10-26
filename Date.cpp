@@ -49,7 +49,7 @@ void Date::setDate(int mm, int dd, int yy)
 	}
 	else
 	{
-		day = (dd >= 1 && dd <= days[month]) ? dd : 1;
+	day = (dd >= 1 && dd <= days[month]) ? dd : 1;
 	}
 }
 
@@ -145,31 +145,128 @@ void Date::helpIncrement()
 // comparing the time of two Date instances
 bool Date::operator==(const Date& d) const
 {
-	 return (*this == d);
+	if (clock.getHour() == d.clock.getHour())
+	{
+		if (clock.getMinute() == d.clock.getMinute())
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	else
+	{
+		return false;
+	}
 }
 
 bool Date::operator!=(const Date& d) const
 {
-	return !(*this == d);
+	if (clock.getHour() != d.clock.getHour())
+	{
+			return true;
+	}
+	else
+	{
+		return false;
+	}
+
 }
 
 bool Date::operator<(const Date& d) const
 {
+	if (clock.getHour() < d.clock.getHour())
+	{
+		return true;
+	}
 
+	else if (clock.getHour() == d.clock.getHour())
+	{
+		if (clock.getMinute() < d.clock.getMinute())
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	else
+	{
+		return false;
+	}
 }
 
 bool Date::operator>(const Date& d) const
 {
-
+	if (clock.getHour() > d.clock.getHour())
+	{
+		return true;
+	}
+	else if (clock.getHour() == d.clock.getHour())
+	{
+		if (clock.getMinute() > d.clock.getMinute())
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	else
+	{
+		return false;
+	}
+	
 }
+
 
 bool Date::operator<=(const Date& d) const
 {
-
+	if (clock.getHour() <= d.clock.getHour())
+	{
+		return true;
+	}
+		if (clock.getHour() == d.clock.getHour())
+		{
+			if (clock.getMinute() <= d.clock.getMinute())
+			{
+				return true;
+			}
+			else 
+			{
+				return false;
+			}
+		}
+	else
+	{
+		return false;
+	}
 }
 
-bool Date::operator>=(const Date& number) const
+bool Date::operator>=(const Date& d) const
 {
-
+	if (clock.getHour() >= d.clock.getHour())
+	{
+		return true;
+	}
+	if (clock.getHour() == d.clock.getHour())
+	{
+		if (clock.getMinute() >= d.clock.getMinute())
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	else
+	{
+		return false;
+	}
 }
 

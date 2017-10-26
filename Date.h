@@ -31,7 +31,6 @@ private:
 public:
 	Date(int m = 1, int d = 1, int y = 1900);  //default constructor
 	void setDate(int, int, int);  //set month, day and year
-
 	Date& operator++();  //overloaded PREFIX increment operator
 	Date operator++(int);  //overloaded POSTFIX increment operator
 	const Date& operator+=(int);  //to increment date by multiple days
