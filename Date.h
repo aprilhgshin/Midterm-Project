@@ -1,12 +1,15 @@
+#pragma once
 //Jonah Moon and April Shin
 //CSIS 137 Wed Night Class
 //Midterm Project
 //Step 2
 
 #pragma once
-#define DATE_H
+#pragma once
 
+#define DATE_H
 #include <iostream>
+#include "Time.h"
 using namespace std;
 
 class Date
@@ -19,6 +22,7 @@ private:
 	int month;
 	int day;
 	int year;
+	Time clock;
 
 	static const int days[];  //static array member to hold # of days in each month
 
@@ -33,10 +37,10 @@ public:
 	const Date& operator+=(int);  //to increment date by multiple days
 	static bool leapYear(int);  //to determine if date is a leap year - static
 	bool endOfMonth(int)const;  //is date the end of the month (need to know for incrementing)
-	/*bool operator==(const Date&) const;
+	bool operator==(const Date&) const;
 	bool operator!=(const Date&) const;
 	bool operator<(const Date&) const;
 	bool operator>(const Date&) const;
 	bool operator<=(const Date&) const;
-	bool operator>=(const Date&) const; */
+	bool operator>=(const Date&) const; 
 };

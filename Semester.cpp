@@ -1,16 +1,9 @@
-//Jonah Moon and April Shin
-//CSIS 137 Wed Night Class
-//Midterm Project
-//Step 4
-
-#include "Semester.h"
-#include <string>
 #include <iostream>
 #include <iomanip>
+#include "Semester.h"
 using namespace std;
 
-Semester::Semester(string name, Date start, Date end) 
-	:startDate(start), endDate(end)
+Semester::Semester(string name, Date start, Date end) :startDate(start), endDate(end)
 {
 	setSemesterName(name);
 }
@@ -23,7 +16,7 @@ ostream& operator<<(ostream& output, const Semester& info)
 
 istream& operator>>(istream& input, Semester& info)
 {
-	input >> setw(8) >> info.semesterName;
+	input >> setw(9) >> info.semesterName;
 	input.ignore();
 	input >> setw(10) >> info.startDate;
 	input.ignore();
