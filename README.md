@@ -1,6 +1,6 @@
 # Midterm-Project
 
-## Status: updated 10/28/17 6:21AM
-### Step 2: Attempted (almost complete, needs to be retested, UML created)
-### Step 4: Attempted (almost complete, needs to be retested, UML created)
-### Step 5: Attempted (incomplete, UML created)
+## Status: updated 10/28/17 6:54AM
+### Step 2: Almost complete, needs to be retested, UML created
+### Step 4: Almost complete, needs to be retested, UML created
+### Step 5: Incomplete, UML created (Just need to finish setting up two functions)
