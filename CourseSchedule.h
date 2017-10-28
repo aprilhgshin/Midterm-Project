@@ -7,27 +7,27 @@
 #define COURSESCHEDULE_H
 #include "Course.h"
 #include "Semester.h"
+#include "Date.h"
 #include <iostream>
 using namespace std;
 
 class CourseSchedule
 {
-	ostream& operator<<(ostream&, const CourseSchedule);
+	friend ostream& operator<<(ostream&, const CourseSchedule&);
+
 	private:
-		Course *array;
+		Course *array;  //Jonah, we only need one Course pointer right?
 		Semester info;
 		string studentName;
 		int maxSize;
 		int numCourses;
-		Course *sizePtr;
 
 	public:
-		CourseSchedule(string, Semester, int);
-		~CourseSchedule();
+		CourseSchedule(string, Semester, int);  //Please double check this one for me!!!
+		void setStudentName(string);
+		void setNumCourses(int);
 		string getStudentName() const;
 		int getNumCourses() const;
-		void setStudentName(string);
 		bool checkDates(Semester, Date, Date);
-
-
+		~CourseSchedule();
 };
