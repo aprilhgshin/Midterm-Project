@@ -8,7 +8,7 @@
 using namespace std;
 
 
-CourseSchedule::CourseSchedule(string name, Semester s, int maxNum) : info(s)
+CourseSchedule::CourseSchedule(string name, Semester s, int maxNum) : semTerm(s)
 {
 	setStudentName(name);
 	s.setSemesterName = " ";
@@ -37,8 +37,16 @@ int CourseSchedule::getNumCourses() const
 	return numCourses;
 }
 
-
+string CourseSchedule::getSemTerm(Semester s) const
+{
+	return s.getSemesterName();
+}
 bool CourseSchedule::checkDates(Semester s, Date start, Date end)
+{
+
+}
+
+void CourseSchedule::AddCourse(Course c)
 {
 
 }

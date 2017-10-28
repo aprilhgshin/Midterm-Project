@@ -17,17 +17,19 @@ class CourseSchedule
 
 	private:
 		Course *array;  //Jonah, we only need one Course pointer right?
-		Semester info;
+		Semester semTerm;
 		string studentName;
 		int maxSize;
 		int numCourses;
-
+		
 	public:
 		CourseSchedule(string, Semester, int);  //Please double check this one for me!!!
 		void setStudentName(string);
 		void setNumCourses(int);
 		string getStudentName() const;
 		int getNumCourses() const;
+		string getSemTerm(Semester) const;
 		bool checkDates(Semester, Date, Date);
+		void AddCourse(Course);
 		~CourseSchedule();
 };
