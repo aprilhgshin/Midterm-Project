@@ -37,7 +37,7 @@ int CourseSchedule::getNumCourses() const
 	return numCourses;
 }
 
-string CourseSchedule::getSemTerm(Semester s) const
+string CourseSchedule::getSemesterName(Semester s) const
 {
 	return s.getSemesterName();
 }

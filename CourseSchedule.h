@@ -17,7 +17,7 @@ class CourseSchedule
 
 	private:
 		Course *array;  //Jonah, we only need one Course pointer right?
-		Semester semTerm;
+		Semester semTerm;  
 		string studentName;
 		int maxSize;
 		int numCourses;
@@ -28,7 +28,7 @@ class CourseSchedule
 		void setNumCourses(int);
 		string getStudentName() const;
 		int getNumCourses() const;
-		string getSemTerm(Semester) const;
+		string getSemesterName(Semester) const;
 		bool checkDates(Semester, Date, Date);
 		void AddCourse(Course);
 		~CourseSchedule();
