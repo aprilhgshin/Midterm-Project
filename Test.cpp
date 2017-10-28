@@ -50,7 +50,7 @@ int main()
 	Date end(12, 21, 2017);
 	Semester userInput("Fall 2017", start, end);
 	cout << "Please enter the first four letters of the Semester term name and the starting and ending date of that semester in the following format: " << endl
-		<< "Wint 2018 12/11/2017-01/11/2017" << endl;
+		<< "Wint 12/11/2017-01/11/2017" << endl;
 	cin >> userInput;
 	cout << userInput;
 

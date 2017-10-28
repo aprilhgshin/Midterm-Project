@@ -30,6 +30,12 @@ private:
 
 public:
 	Date(int m = 1, int d = 1, int y = 1900);  //default constructor
+	void setMonth(int);
+	void setDay(int);
+	void setYear(int);
+	int getMonth() const;
+	int getDay() const;
+	int getYear() const;
 	void setDate(int, int, int);  //set month, day and year
 	Date& operator++();  //overloaded PREFIX increment operator
 	Date operator++(int);  //overloaded POSTFIX increment operator

@@ -3,12 +3,13 @@
 #include <string>
 using namespace std;
 
+
 #include "Time.h"
 
 ostream& operator<<(ostream& output, const Time& arg)
 {
 	output << ((arg.hour == 0 || arg.hour == 12) ? 12 : arg.hour % 12) << ":"
-		<< setfill('0') << setw(2) << arg.minute << (arg.hour <= 12 ? " AM" : " PM");
+		<< setfill('0') << setw(2) << arg.minute << (arg.hour < 12 ? " AM" : " PM");
 	return output;
 }
 istream& operator>>(istream& input, Time& arg)
@@ -30,9 +31,16 @@ istream& operator>>(istream& input, Time& arg)
 	input >> setw(1) >> setting;
 	if (setting == 'P' || setting == 'p')
 	{
-		if (arg.hour < 12)
+		if (arg.hour != 12)
 		{
-			arg.hour = arg.hour + 12;
+			arg.hour += 12;
+		}
+	}
+	if (setting == 'A' || setting == 'a')
+	{
+		if (arg.hour == 12)
+		{
+			arg.hour -= 12;
 		}
 	}
 	input.ignore(2);
@@ -103,7 +111,7 @@ void Time::printStandard()const  //must be const since prototype is const
 	cout << ((hour == 0 || hour == 12) ? 12 : hour % 12) << ":"
 		<< setfill('0') << setw(2) << minute << (hour < 12 ? "AM" : "PM") << endl;
 }
-double Time::operator-(const Time& arg)
+double Time::operator-(const Time& arg) const
 {
 	double hour, minute, difference;
 	string diff;
