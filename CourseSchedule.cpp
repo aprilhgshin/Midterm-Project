@@ -75,7 +75,7 @@ bool CourseSchedule::checkDates(Semester& s, Date& start, Date& end) const
 void CourseSchedule::AddCourse(Course c)
 {
 	Date s;
-	if (checkDates(this->getSemester(), s, s) == true)
+	if (checkDates(this->getSemester(), s, s) == true) // i dont think this is it so can you demonstrate what you were talking about if you dont want to want more arguments to addCourse
 	{
 		array[numCourses + 1] = c;
 	}
@@ -83,6 +83,22 @@ void CourseSchedule::AddCourse(Course c)
 	{
 	}
 }
+
+void CourseSchedule::RemoveCourse(Course c, int num)
+{
+	Course empty = 0;
+	displayCourseList(c);
+	array[num] = empty;
+	cout << "The course has been removed." << endl;
+}
+void CourseSchedule::displayCourseList(Course c)
+{
+	for (int i = 1; i <= getNumCourses(); ++i)
+	{
+		cout << i << ". " << c.getCourseName() << " " << c.getCourseNum() << endl;
+	}
+}
+
 
 ostream& operator<<(ostream& output, const CourseSchedule& info)
 {
@@ -101,12 +117,6 @@ ostream& operator<<(ostream& output, const CourseSchedule& info)
 
 	return output;
 }
-
-void CourseSchedule::RemoveCourse(Course c)
-{
-
-}
-
 
 CourseSchedule::~CourseSchedule()
 {
