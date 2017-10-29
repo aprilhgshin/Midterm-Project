@@ -8,12 +8,13 @@
 ``` C++
 void CourseSchedule::AddCourse(Course c)
 {
-		if (checkDates(this->getSemester(), semInfo.getStartDate(), semInfo.getEndDate()) == true)
-		{
-			array[numCourses + 1] = c;
-		}
-		else
-		{
-		}
+	// semInfo is my Semester instance from CourseSchedule.h
+	if (checkDates(this->getSemester(), semInfo.getStartDate(), semInfo.getEndDate()) == true)
+	{			
+		array[numCourses + 1] = c;
+	}		
+	else
+	{		
+	}
 }
 ```
