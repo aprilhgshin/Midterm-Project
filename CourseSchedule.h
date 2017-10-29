@@ -19,10 +19,11 @@ class CourseSchedule
 	private:
 		Course *array;
 		Semester semInfo;  
+		Date d;
 		string studentName;
 		int maxSize;
 		int numCourses;
-		bool checkDates(Semester&, Date&, Date&) const;
+		bool checkDates(Semester, Date, Date)const;
 
 		
 	public:

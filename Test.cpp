@@ -68,7 +68,7 @@ int main()
 			cout << "Please enter the ending date of the class." << endl;
 			cin >> endD;
 			Course newCourse(cNum, cName, meetDays, units, startD, endD, startT, endT);
-			// wait until add course is done thne add
+
 			sched.AddCourse(newCourse);
 		}
 		else if (selection == '2')
