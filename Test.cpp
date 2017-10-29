@@ -18,10 +18,16 @@ int main()
 	Semester semName;
 	int maxNum;
 	char selection = 0;
+	int numSelect;
+	Course courses;
 
-	cout << "Welcome to Course Schedule program!" << endl << "Please enter your name, the semester, "
-		<< "the start date,\nend date, and maximum number of classes you are taking. \nIn the following format "
-		<< "John, Fall 09/15/1990-12/16/1990, 3. \nPress enter after every comma." << endl;
+	cout << "Welcome to Course Schedule program!" << endl << "Please enter your name, the first four letters of the semester name, "
+		<< "the start \ndate, end date, and maximum number of classes you are taking in the following \nformat: " << endl
+		<< "John\n"
+		<< "Fall\n"
+		<< "09/15/1990\n"
+		<< "12/16/1990\n"
+		<< "3" << endl;
 	cin >> userName >> semName >> maxNum;
 	CourseSchedule sched(userName, semName, maxNum);
 
@@ -44,7 +50,7 @@ int main()
 			<< "q) Quit the program " << endl;
 		cin >> selection;
 		tolower(selection);
-		if (selection == 1)
+		if (selection == '1')
 		{
 			Time startT, endT;
 			Date startD, endD;
@@ -65,13 +71,15 @@ int main()
 			// wait until add course is done thne add
 			sched.AddCourse(newCourse);
 		}
-		else if (selection == 2)
+		else if (selection == '2')
 		{
-
+			cout << "Please select the course you would like to remove: " << endl;
+			cin >> numSelect;
+			sched.RemoveCourse(courses, numSelect);
 		}
-		else if (selection == 3)
+		else if (selection == '3')
 		{
-
+			cout << sched;
 		}
 	}
 	system("PAUSE");
