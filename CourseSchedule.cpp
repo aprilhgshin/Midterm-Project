@@ -44,43 +44,34 @@ Semester CourseSchedule::getSemester() const
 
 bool CourseSchedule::checkDates(Semester& s, Date& start, Date& end) const
 {
-		bool status;
-		if (start.getYear() >= s.getStartDate().getYear())
+	if (start.getYear() >= s.getStartDate().getYear() && end.getYear() <= s.getEndDate().getYear())
+	{
+		if (start.getMonth() >= s.getStartDate().getMonth() && end.getMonth() <= s.getEndDate().getMonth())
 		{
-			if (start.getMonth() >= s.getStartDate().getMonth())
+			if (start.getDay() >= s.getStartDate().getDay() && end.getDay() <= s.getEndDate().getDay())
 			{
-				if (start.getDay() >= s.getStartDate().getDay())
-				{
-					status = true;
-				}
+				return true;
 			}
 		}
-		else
-		{
-			return false;
-		}
-		if (end.getYear() <= s.getEndDate().getYear())
-		{
-			if (end.getMonth() <= s.getEndDate().getMonth())
-			{
-				if (end.getDay() <= s.getEndDate().getDay())
-				{
-					status = true;
-				}
-			}
-		}
-		else
-		{
-			return false;
-		}
-		return status;
+	}
+	else
+	{
+		return false;
+	}
+
 }
 
 
 
-void CourseSchedule::AddCourse(Course c)
+void CourseSchedule::AddCourse(Course c, Semester s, Date start, Date end)
 {
-	array[numCourses + 1] = c;
+	if (checkDates(s, start, end) == true)
+	{
+		array[numCourses + 1] = c;
+	}
+	else
+	{
+	}
 }
 
 ostream& operator<<(ostream& output, const CourseSchedule& info)

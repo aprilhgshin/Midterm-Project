@@ -32,7 +32,7 @@ class CourseSchedule
 		string getStudentName() const;
 		int getNumCourses() const;
 		Semester getSemester() const;
-		void AddCourse(Course);
+		void AddCourse(Course, Semester, Date, Date);
 		void RemoveCourse(Course);
 		~CourseSchedule();
 };
