@@ -37,9 +37,10 @@ int CourseSchedule::getNumCourses() const
 	return numCourses;
 }
 
-Semester CourseSchedule::getSemester() const
+Semester& CourseSchedule::getSemester() const
 {
-	return semInfo;
+	Semester* ptr = new Semester(semInfo);
+	return *ptr;
 }
 
 bool CourseSchedule::checkDates(Semester& s, Date& start, Date& end) const
@@ -52,6 +53,14 @@ bool CourseSchedule::checkDates(Semester& s, Date& start, Date& end) const
 			{
 				return true;
 			}
+			else
+			{
+				return false;
+			}
+		}
+		else 
+		{
+			return false;
 		}
 	}
 	else
@@ -63,9 +72,10 @@ bool CourseSchedule::checkDates(Semester& s, Date& start, Date& end) const
 
 
 
-void CourseSchedule::AddCourse(Course c, Semester s, Date start, Date end)
+void CourseSchedule::AddCourse(Course c)
 {
-	if (checkDates(s, start, end) == true)
+	Date s;
+	if (checkDates(this->getSemester(), s, s) == true)
 	{
 		array[numCourses + 1] = c;
 	}
@@ -88,6 +98,8 @@ ostream& operator<<(ostream& output, const CourseSchedule& info)
 	{
 		output << info.array[counter] << endl;
 	}
+
+	return output;
 }
 
 void CourseSchedule::RemoveCourse(Course c)

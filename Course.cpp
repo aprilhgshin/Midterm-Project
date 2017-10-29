@@ -92,6 +92,10 @@ void Course::setEndTime(Time eTime)
 	endTime = eTime;
 
 }
+double Course::calcDailyDuration() const
+{
+	return endTime - startTime;
+}
 Course::~Course()
 {
 	cout << courseName << " has been deleted." << endl;

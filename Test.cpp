@@ -4,56 +4,76 @@
 //Step 2, 4, 5
 
 #include "Semester.h"
+#include "CourseSchedule.h"
+#include "Time.h"
+#include "Date.h"
+#include "Course.h"
 #include <iostream>
 #include <string>
 using namespace std;
 
 int main()
 {
+	string userName;
+	Semester semName;
+	int maxNum;
+	char selection = 0;
 
-	// for step 2: Date.h
-	/*
-	Date d1;  //uses default args of constructor
-	Date d2(12, 27, 1992);
-	Date d3(0, 99, 8045);  //invalid
+	cout << "Welcome to Course Schedule program!" << endl << "Please enter your name, the semester, "
+		<< "the start date,\nend date, and maximum number of classes you are taking. \nIn the following format "
+		<< "John, Fall 09/15/1990-12/16/1990, 3. \nPress enter after every comma." << endl;
+	cin >> userName >> semName >> maxNum;
+	CourseSchedule sched(userName, semName, maxNum);
 
-	cout << "d1 is " << d1 << endl;
-	cout << "d2 is " << d2 << endl;
-	cout << "d3 is " << d3 << endl;
-
-	cout << "\n\nd2 + 7 is " << (d2 += 7);
-
-	d3.setDate(2, 28, 1992);  //1992 was a leap year
-	cout << "\n\nd3 is now " << d3 << endl;
-	cout << "\n++d3 is " << ++d3 << endl;
-
-	//test postfix op and see how it's different than the prefix
-	Date d4(7, 13, 2002);
-
-	//Testing PREFIX OPERATOR
-	cout << "\nPREFIX OPERATOR ON d4" << endl;
-	cout << "++d4 is " << ++d4 << endl;
-
-	//Testing POSTFIX OPERATOR
-	cout << "\nPOSTFIX OPERATOR ON d4" << endl;
-	cout << "d4++ is " << d4++ << endl;
-	cout << "d4 doesn't change until AFTER the postfix executes " << endl;
-	cout << "d4 is now " << d4 << endl;
-
-	cout << "Please enter a date in the following format: 01/16/2017" << endl;
-	cin >> d1;
-	cout << d1 << endl;
-	*/
-	// for step 4: Semester.h
-
-	Date start(7, 24, 2017);
-	Date end(12, 21, 2017);
-	Semester userInput("Fall 2017", start, end);
+	// To get the needed values above, we should reuse code ... userName, semName, and maxNum have their own functions in different classes
+	
+	/*Semester userInput;
 	cout << "Please enter the first four letters of the Semester term name and the starting and ending date of that semester in the following format: " << endl
 		<< "Wint 12/11/2017-01/11/2017" << endl;
-	cin >> userInput;
-	cout << userInput;
+	cin >> userInput;*/
 
+	
+
+	while (selection != 'q')
+	{
+		cout << "COURSE ENTRY MENU FOR:   " << sched.getSemester() << endl
+			<< "-----------------------------------------------" << endl
+			<< "1) Enter a new course" << endl
+			<< "2) Remove a course" << endl
+			<< "3) Print semester schedule" << endl
+			<< "q) Quit the program " << endl;
+		cin >> selection;
+		tolower(selection);
+		if (selection == 1)
+		{
+			Time startT, endT;
+			Date startD, endD;
+			string cNum, cName, meetDays;
+			double units;
+			cout << "Please enter the course number, course name, meeting days, \nand number of "
+				<< "units the course is worth. Press enter after each input." << endl;
+			cin >> cNum >> cName >> meetDays >> units;
+			cout << "Please enter the starting time of the class. " << endl;
+			cin >> startT;
+			cout << "Please enter the ending time of the class." << endl;
+			cin >> endT;
+			cout << "Please enter the starting date of the class." << endl;
+			cin >> startD;
+			cout << "Please enter the ending date of the class." << endl;
+			cin >> endD;
+			Course newCourse(cNum, cName, meetDays, units, startD, endD, startT, endT);
+			// wait until add course is done thne add
+			sched.AddCourse(newCourse);
+		}
+		else if (selection == 2)
+		{
+
+		}
+		else if (selection == 3)
+		{
+
+		}
+	}
 	system("PAUSE");
 	return 0;
 }

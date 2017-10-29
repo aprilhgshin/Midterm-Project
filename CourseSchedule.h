@@ -26,13 +26,13 @@ class CourseSchedule
 
 		
 	public:
-		CourseSchedule(string, Semester, int);  //Please double check this one for me!!!
+		CourseSchedule(string, Semester, int); 
 		void setStudentName(string);
 		void setNumCourses(int);
 		string getStudentName() const;
 		int getNumCourses() const;
-		Semester getSemester() const;
-		void AddCourse(Course, Semester, Date, Date);
+		Semester& getSemester() const;
+		void AddCourse(Course);
 		void RemoveCourse(Course);
 		~CourseSchedule();
 };

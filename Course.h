@@ -37,6 +37,6 @@ public:
 	void setEndDate(Date);
 	void setStartTime(Time);
 	void setEndTime(Time);
-
+	double calcDailyDuration()const;
 
 };
