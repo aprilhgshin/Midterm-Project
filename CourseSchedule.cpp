@@ -37,34 +37,50 @@ int CourseSchedule::getNumCourses() const
 	return numCourses;
 }
 
-Semester& CourseSchedule::getSemesterName() const
+Semester CourseSchedule::getSemester() const
 {
-	Semester* ptr = new Semester(semInfo);
-	return *ptr;
+	return semInfo;
 }
-bool CourseSchedule::checkDates(Semester s, Date start, Date end)
-{
-	if (s.getStartDate() <=  //stuck here
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
 
+bool CourseSchedule::checkDates(Semester& s, Date& start, Date& end) const
+{
+		bool status;
+		if (start.getYear() >= s.getStartDate().getYear())
+		{
+			if (start.getMonth() >= s.getStartDate().getMonth())
+			{
+				if (start.getDay() >= s.getStartDate().getDay())
+				{
+					status = true;
+				}
+			}
+		}
+		else
+		{
+			return false;
+		}
+		if (end.getYear() <= s.getEndDate().getYear())
+		{
+			if (end.getMonth() <= s.getEndDate().getMonth())
+			{
+				if (end.getDay() <= s.getEndDate().getDay())
+				{
+					status = true;
+				}
+			}
+		}
+		else
+		{
+			return false;
+		}
+		return status;
 }
+
+
 
 void CourseSchedule::AddCourse(Course c)
 {
-	if (checkDates == true) // will change once I figure out checkDates
-	{
-		array[numCourses + 1] = c;
-	}
-	else
-	{
-	}
-
+	array[numCourses + 1] = c;
 }
 
 ostream& operator<<(ostream& output, const CourseSchedule& info)
@@ -82,6 +98,12 @@ ostream& operator<<(ostream& output, const CourseSchedule& info)
 		output << info.array[counter] << endl;
 	}
 }
+
+void CourseSchedule::RemoveCourse(Course c)
+{
+
+}
+
 
 CourseSchedule::~CourseSchedule()
 {

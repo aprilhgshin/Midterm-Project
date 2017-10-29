@@ -17,12 +17,12 @@ class CourseSchedule
 	friend ostream& operator<<(ostream&, const CourseSchedule&);
 
 	private:
-		Course *array;  //Jonah, we only need one Course pointer right?
+		Course *array;
 		Semester semInfo;  
 		string studentName;
 		int maxSize;
 		int numCourses;
-		bool checkDates(Semester, Date, Date);
+		bool checkDates(Semester&, Date&, Date&) const;
 
 		
 	public:
@@ -31,7 +31,8 @@ class CourseSchedule
 		void setNumCourses(int);
 		string getStudentName() const;
 		int getNumCourses() const;
-		Semester& getSemesterName() const;
+		Semester getSemester() const;
 		void AddCourse(Course);
+		void RemoveCourse(Course);
 		~CourseSchedule();
 };
