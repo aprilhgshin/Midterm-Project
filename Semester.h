@@ -11,14 +11,18 @@ class Semester
 	friend ostream& operator<<(ostream&, const Semester&);
 	friend istream& operator>>(istream&, Semester&);
 
-	private:
-		string semesterName;
-		Date startDate;
-		Date endDate;
+private:
+	string semesterName;
+	Date startDate;
+	Date endDate;
 
-	public:
-		Semester(string, Date, Date);
-		void setSemesterName(string);
-		string getSemesterName() const;
+public:
+	Semester(string = "", Date = Date(), Date = Date());
+	void setSemesterName(string);
+	string getSemesterName() const;
+	void setStartDate(Date);
+	Date& getStartDate() const;
+	void setEndDate(Date);
+	Date& getEndDate() const;
 
 };

@@ -5,13 +5,13 @@
 
 #include "CourseSchedule.h"
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 
-CourseSchedule::CourseSchedule(string name, Semester s, int maxNum) : semTerm(s)
+CourseSchedule::CourseSchedule(string name, Semester s, int maxNum) : semInfo(s)
 {
 	setStudentName(name);
-	s.setSemesterName = " ";
 	maxSize = maxNum;
 	setNumCourses(0);
 	array = new Course[maxSize];
@@ -37,23 +37,50 @@ int CourseSchedule::getNumCourses() const
 	return numCourses;
 }
 
-string CourseSchedule::getSemesterName(Semester s) const
+Semester& CourseSchedule::getSemesterName() const
 {
-	return s.getSemesterName();
+	Semester* ptr = new Semester(semInfo);
+	return *ptr;
 }
 bool CourseSchedule::checkDates(Semester s, Date start, Date end)
 {
+	if (s.getStartDate() <=  //stuck here
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 
 }
 
 void CourseSchedule::AddCourse(Course c)
 {
+	if (checkDates == true) // will change once I figure out checkDates
+	{
+		array[numCourses + 1] = c;
+	}
+	else
+	{
+	}
 
 }
 
 ostream& operator<<(ostream& output, const CourseSchedule& info)
 {
+	cout << "CLASS SCHEDULE"
+		<< "------------------------------"
+		<< "Name: " << info.getStudentName() << endl
+		<< "Semester: ";
+	output << info.semInfo;
+	cout << "\nNumber of Classes: " <<info.getNumCourses() << endl
+		<< "------------------------------" << endl;
 
+	for (int counter = 0; counter < info.getNumCourses(); ++counter)
+	{
+		output << info.array[counter] << endl;
+	}
 }
 
 CourseSchedule::~CourseSchedule()

@@ -8,6 +8,7 @@
 #include "Course.h"
 #include "Semester.h"
 #include "Date.h"
+#include "Time.h"
 #include <iostream>
 using namespace std;
 
@@ -17,10 +18,12 @@ class CourseSchedule
 
 	private:
 		Course *array;  //Jonah, we only need one Course pointer right?
-		Semester semTerm;  
+		Semester semInfo;  
 		string studentName;
 		int maxSize;
 		int numCourses;
+		bool checkDates(Semester, Date, Date);
+
 		
 	public:
 		CourseSchedule(string, Semester, int);  //Please double check this one for me!!!
@@ -28,8 +31,7 @@ class CourseSchedule
 		void setNumCourses(int);
 		string getStudentName() const;
 		int getNumCourses() const;
-		string getSemesterName(Semester) const;
-		bool checkDates(Semester, Date, Date);
+		Semester& getSemesterName() const;
 		void AddCourse(Course);
 		~CourseSchedule();
 };

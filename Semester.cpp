@@ -17,7 +17,7 @@ ostream& operator<<(ostream& output, const Semester& info)
 istream& operator>>(istream& input, Semester& info)
 {
 	input >> setw(4) >> info.semesterName;
-	input.ignore();
+	input.ignore(); 
 	input >> setw(10) >> info.startDate;
 	input.ignore();
 	input >> setw(10) >> info.endDate;
@@ -32,4 +32,26 @@ void Semester::setSemesterName(string name)
 string Semester::getSemesterName() const
 {
 	return semesterName;
+}
+
+void Semester::setStartDate(Date sDate)
+{
+	startDate = sDate;
+}
+
+Date& Semester::getStartDate() const
+{
+	Date* ptr = new Date(startDate);
+	return *ptr;
+}
+
+void Semester::setEndDate(Date eDate)
+{
+	endDate = eDate;
+}
+
+Date& Semester::getEndDate() const
+{
+	Date* ptr = new Date(endDate);
+	return *ptr;
 }
