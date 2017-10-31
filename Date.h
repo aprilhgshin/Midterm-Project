@@ -1,10 +1,8 @@
-#pragma once
 //Jonah Moon and April Shin
 //CSIS 137 Wed Night Class
 //Midterm Project
-//Step 2
 
-#pragma once
+
 #pragma once
 
 #define DATE_H

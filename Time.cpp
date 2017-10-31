@@ -1,3 +1,7 @@
+//Jonah Moon and April Shin
+//CSIS 137 Wed Night Class
+//Midterm Project
+
 #include <iostream>
 #include <iomanip>
 #include <string>

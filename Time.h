@@ -1,3 +1,7 @@
+//Jonah Moon and April Shin
+//CSIS 137 Wed Night Class
+//Midterm Project
+
 #pragma once
 //Time Class Definition with const member functions
 #define TIME_H

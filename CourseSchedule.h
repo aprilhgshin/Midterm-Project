@@ -1,8 +1,7 @@
-#pragma once
 //Jonah Moon and April Shin
 //CSIS 137 Wed Night Class
 //Midterm Project
-//Step 5
+
 #pragma once
 #define COURSESCHEDULE_H
 #include "Course.h"
