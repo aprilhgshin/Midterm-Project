@@ -67,9 +67,10 @@ using namespace std;
 				cin >> startD;
 				cout << "Please enter the ending date of the class. (MM/DD/YYYY)" << endl;
 				cin >> endD;
-				Course newCourse(cNum, cName, meetDays, units, startD, endD, startT, endT);
+				Course* nCourse = new Course(cNum, cName, meetDays, units, startD, endD, startT, endT);
+				//Course newCourse(cNum, cName, meetDays, units, startD, endD, startT, endT);
 
-				sched.AddCourse(newCourse);
+				sched.AddCourse(*nCourse,semInfo,startD,endD);
 			}
 			else if (selection == '2')
 			{

@@ -45,56 +45,109 @@ Semester& CourseSchedule::getSemester() const
 
 bool CourseSchedule::checkDates(Semester s, Date start, Date end) const
 {
-	if (start.getYear() >= s.getStartDate().getYear() && end.getYear() <= s.getEndDate().getYear())
+	bool status;
+	// To check for course starting date:
+	if (start.getYear() >= s.getStartDate().getYear() && start.getYear() <= s.getEndDate().getYear())
 	{
-		if (start.getMonth() >= s.getStartDate().getMonth() && end.getMonth() <= s.getEndDate().getMonth())
+		if (start.getMonth() > s.getStartDate().getMonth() && start.getMonth() < s.getEndDate().getMonth())
 		{
-			if (start.getDay() >= s.getStartDate().getDay() && end.getDay() <= s.getEndDate().getDay())
+			return status = true;
+		}
+		else if (start.getMonth() == s.getEndDate().getMonth())
+		{
+			if (start.getDay() <= s.getEndDate().getDay())
 			{
-				return true;
+				status = true;
 			}
 			else
 			{
-				return false;
+				status = false;
 			}
 		}
-		else 
+		else if (start.getMonth() == s.getStartDate().getMonth())
 		{
-			return false;
+			if (start.getDay() >= s.getStartDate().getDay())
+			{
+				status = true;
+			}
+			else
+			{
+				cout << "Invalid course dates; therefore, course cannot be added to the schedule." << endl;
+				status = false;
+			}
+		}
+		else
+		{
+			cout << "Invalid course dates; therefore, course cannot be added to the schedule." << endl;
+			status = false;
 		}
 	}
 	else
 	{
-		return false;
+		cout << "Invalid course dates; therefore, course cannot be added to the schedule." << endl;
+		status = false;
 	}
 
-}
-
-void CourseSchedule::AddCourse(Course c)
-{
-		if (checkDates(this->getSemester(), semInfo.getStartDate(), semInfo.getEndDate()) == true)
+	// To check for course ending date:
+	if (end.getYear() <= s.getEndDate().getYear() && end.getYear() >= start.getYear())
+	{
+		if (end.getMonth() < s.getEndDate().getMonth() && end.getMonth() >= start.getMonth())
 		{
-			array[numCourses + 1] = c;
+			status = true;
+		}
+		else if (end.getMonth() == s.getEndDate().getMonth() && end.getMonth() >= start.getMonth())
+		{
+			if (end.getDay() <= s.getEndDate().getDay() && end.getDay() >= start.getDay())
+			{
+				status = true;
+			}
+			else
+			{
+				cout << "Invalid course dates; therefore, course cannot be added to the schedule." << endl;
+				status = false;
+			}
 		}
 		else
 		{
+			cout << "Invalid course dates; therefore, course cannot be added to the schedule." << endl;
+			status = false;
+		}
+	}
+	else
+	{
+		cout << "Invalid course dates; therefore, course cannot be added to the schedule." << endl;
+		status = false;
+	}
+
+	//returning status after all of the if else statements to return final value of variable status 
+	return status;
+}
+
+
+void CourseSchedule::AddCourse(Course& c, Semester s, Date start, Date end)
+{
+
+		if (checkDates(s,start,end) == true && numCourses < maxSize)
+		{
+			array[numCourses] = c;
+			numCourses += 1;
+		}
+		else
+		{
+			cout << "You have exceeded the max amount of courses" << endl;
 		}
 }
 
-
-void CourseSchedule::RemoveCourse(Course c, int num)
+void CourseSchedule::RemoveCourse(int num)
 {
-	Course empty = 0;
-	displayCourseList(c);
-	array[num] = empty;
-	cout << "The course has been removed." << endl;
-}
-void CourseSchedule::displayCourseList(Course c)
-{
-	for (int i = 1; i <= getNumCourses(); ++i)
-	{
-		cout << i << ". " << c.getCourseName() << " " << c.getCourseNum() << endl;
-	}
+		Course empty("", array[num - 1].getCourseName());
+		array[num - 1] = empty;
+		numCourses -= 1;
+		for (int i = num - 1; i < numCourses; ++i)
+		{
+			array[i] = array[i+1];
+		}
+		cout << "The course has been removed." << endl;
 }
 
 ostream& operator<<(ostream& output, const CourseSchedule& info)
