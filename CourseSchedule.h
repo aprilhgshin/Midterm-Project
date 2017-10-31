@@ -34,6 +34,6 @@ class CourseSchedule
 		int getNumCourses() const;
 		Semester& getSemester() const;
 		void AddCourse(Course&, Semester, Date, Date);
-		void RemoveCourse(int);
+		void RemoveCourse(const CourseSchedule&);
 		~CourseSchedule();
 };

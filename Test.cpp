@@ -27,7 +27,7 @@ using namespace std;
 		cout << "Please enter the first four letters of the semester name, start date, end date in the following format: " << endl
 			<< "Fall 09/15/1990-12/16/1990" << endl;
 		cin >> semInfo;
-		cout << " Please enter the maximum number of classes you are taking: " << endl;
+		cout << "Please enter the maximum number of classes you are taking: " << endl;
 		cin >> maxNum;
 		CourseSchedule sched(userName, semInfo, maxNum);
 
@@ -78,10 +78,7 @@ using namespace std;
 			}
 			else if (selection == '2')
 			{
-				cout << sched;
-				cout << "Please select the course you would like to remove by the number of its order in the schedule: " << endl;
-				cin >> numSelect;
-				sched.RemoveCourse(numSelect);
+				sched.RemoveCourse(sched);
 			}
 			else if (selection == '3')
 			{

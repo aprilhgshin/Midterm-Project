@@ -140,16 +140,29 @@ void CourseSchedule::AddCourse(Course& c, Semester s, Date start, Date end)
 		}
 }
 
-void CourseSchedule::RemoveCourse(int num)
+
+void CourseSchedule::RemoveCourse(const CourseSchedule& sc) 
 {
-		Course empty("", array[num - 1].getCourseName());
-		array[num - 1] = empty;
-		numCourses -= 1;
-		for (int i = num - 1; i < numCourses; ++i)
+		int num;
+
+		if (numCourses > 0)
 		{
-			array[i] = array[i+1];
+			cout << sc;
+			cout << "Please select the course # you would like to remove: " << endl;
+			cin >> num;
+			Course empty("", array[num - 1].getCourseName());
+			array[num - 1] = empty;
+			numCourses -= 1;
+			for (int i = num - 1; i < numCourses; i++)
+			{
+				array[i] = array[i + 1];
+			}
 		}
-		cout << "The course has been removed." << endl;
+		else
+		{
+			cout << "You have no courses to remove!\n";
+		}
+
 }
 
 ostream& operator<<(ostream& output, const CourseSchedule& info)
