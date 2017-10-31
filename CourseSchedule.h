@@ -23,7 +23,7 @@ class CourseSchedule
 		string studentName;
 		int maxSize;
 		int numCourses;
-		bool checkDates(Semester, Date, Date)const;
+		bool checkDates(const Semester&, const Date&, const Date&)const;
 
 		
 	public:

@@ -31,13 +31,6 @@ using namespace std;
 		cin >> maxNum;
 		CourseSchedule sched(userName, semInfo, maxNum);
 
-		// To get the needed values above, we should reuse code ... userName, semName, and maxNum have their own functions in different classes
-
-		/*Semester userInput;
-		cout << "Please enter the first four letters of the Semester term name and the starting and ending date of that semester in the following format: " << endl
-		<< "Wint 12/11/2017-01/11/2017" << endl;
-		cin >> userInput;*/
-
 		do 
 		{
 			cout << "COURSE ENTRY MENU FOR:   " << sched.getSemester() << endl
@@ -48,7 +41,6 @@ using namespace std;
 				<< "q) Quit the program " << endl;
 			cin >> selection;
 			cin.ignore();
-			selection = tolower(selection);
 			if (selection == '1')
 			{
 				Time startT, endT;

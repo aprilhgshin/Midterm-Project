@@ -27,8 +27,8 @@ public:
 	double getUnits()const;
 	Date getStartDate()const;
 	Date getEndDate()const;
-	void getStartTime()const;
-	void getEndTime()const;
+	Time getStartTime()const;
+	Time getEndTime()const;
 	Course& setCourseNum(string);
 	Course& setCourseName(string);
 	Course& setMeetDays(string);

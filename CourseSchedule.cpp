@@ -43,7 +43,7 @@ Semester& CourseSchedule::getSemester() const
 	return *ptr;
 }
 
-bool CourseSchedule::checkDates(Semester s, Date start, Date end) const
+bool CourseSchedule::checkDates(const Semester& s, const Date& start, const Date& end) const
 {
 	bool status;
 	// To check for course starting date:
@@ -150,7 +150,7 @@ void CourseSchedule::RemoveCourse(const CourseSchedule& sc)
 		if (numCourses > 0)
 		{
 			cout << sc;
-			cout << "Please select the course # you would like to remove: " << endl;
+			cout << "Please select the course order # you would like to remove: " << endl;
 			cin >> num;
 			Course empty("", array[num - 1].getCourseName());
 			array[num - 1] = empty;

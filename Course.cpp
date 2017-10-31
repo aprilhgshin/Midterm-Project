@@ -44,14 +44,13 @@ Date Course::getEndDate()const
 {
 	return endDate;
 }
-void Course::getStartTime()const
+Time Course::getStartTime()const
 {
-	this->startTime.printStandard();
+	return startTime;
 }
-void Course::getEndTime()const
+Time Course::getEndTime()const
 {
-
-	this->endTime.printStandard();
+	return endTime;
 }
 Course& Course::setCourseNum(string cNum)
 {
