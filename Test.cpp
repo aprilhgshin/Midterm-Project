@@ -12,76 +12,84 @@
 #include <string>
 using namespace std;
 
-int main()
-{
-	string userName;
-	Semester semName;
-	int maxNum;
-	char selection = 0;
-	int numSelect;
-	Course courses;
-
-	cout << "Welcome to Course Schedule program!" << endl << "Please enter your name, the first four letters of the semester name, "
-		<< "the start \ndate, end date, and maximum number of classes you are taking in the following \nformat: " << endl
-		<< "John\n"
-		<< "Fall\n"
-		<< "09/15/1990\n"
-		<< "12/16/1990\n"
-		<< "3" << endl;
-	cin >> userName >> semName >> maxNum;
-	CourseSchedule sched(userName, semName, maxNum);
-
-	// To get the needed values above, we should reuse code ... userName, semName, and maxNum have their own functions in different classes
-	
-	/*Semester userInput;
-	cout << "Please enter the first four letters of the Semester term name and the starting and ending date of that semester in the following format: " << endl
-		<< "Wint 12/11/2017-01/11/2017" << endl;
-	cin >> userInput;*/
-
-	
-
-	while (selection != 'q')
+	int main()
 	{
-		cout << "COURSE ENTRY MENU FOR:   " << sched.getSemester() << endl
-			<< "-----------------------------------------------" << endl
-			<< "1) Enter a new course" << endl
-			<< "2) Remove a course" << endl
-			<< "3) Print semester schedule" << endl
-			<< "q) Quit the program " << endl;
-		cin >> selection;
-		tolower(selection);
-		if (selection == '1')
-		{
-			Time startT, endT;
-			Date startD, endD;
-			string cNum, cName, meetDays;
-			double units;
-			cout << "Please enter the course number, course name, meeting days, \nand number of "
-				<< "units the course is worth. Press enter after each input." << endl;
-			cin >> cNum >> cName >> meetDays >> units;
-			cout << "Please enter the starting time of the class. " << endl;
-			cin >> startT;
-			cout << "Please enter the ending time of the class." << endl;
-			cin >> endT;
-			cout << "Please enter the starting date of the class." << endl;
-			cin >> startD;
-			cout << "Please enter the ending date of the class." << endl;
-			cin >> endD;
-			Course newCourse(cNum, cName, meetDays, units, startD, endD, startT, endT);
+		string userName;
+		Semester semInfo;
+		int maxNum;
+		char selection = 0;
+		int numSelect;
+		Course courses;
 
-			sched.AddCourse(newCourse);
-		}
-		else if (selection == '2')
+		cout << "Welcome to Course Schedule program!" << endl
+			<< "Please enter your first name: " << endl;
+			cin >> userName;
+		cout << "Please enter the first four letters of the semester name, start date, end date in the following format: " << endl
+			<< "Fall 09/15/1990-12/16/1990" << endl;
+		cin >> semInfo;
+		cout << " Please enter the maximum number of classes you are taking: " << endl;
+		cin >> maxNum;
+		CourseSchedule sched(userName, semInfo, maxNum);
+
+		// To get the needed values above, we should reuse code ... userName, semName, and maxNum have their own functions in different classes
+
+		/*Semester userInput;
+		cout << "Please enter the first four letters of the Semester term name and the starting and ending date of that semester in the following format: " << endl
+		<< "Wint 12/11/2017-01/11/2017" << endl;
+		cin >> userInput;*/
+
+		do 
 		{
-			cout << "Please select the course you would like to remove: " << endl;
-			cin >> numSelect;
-			sched.RemoveCourse(courses, numSelect);
-		}
-		else if (selection == '3')
-		{
-			cout << sched;
-		}
+			cout << "COURSE ENTRY MENU FOR:   " << sched.getSemester() << endl
+				<< "-----------------------------------------------" << endl
+				<< "1) Enter a new course" << endl
+				<< "2) Remove a course" << endl
+				<< "3) Print semester schedule" << endl
+				<< "q) Quit the program " << endl;
+			cin >> selection;
+			selection = tolower(selection);
+			if (selection == '1')
+			{
+				Time startT, endT;
+				Date startD, endD;
+				string cNum, cName, meetDays;
+				double units;
+				cout << "Please enter the course number, course name, meeting days, \nand number of "
+					<< "units the course is worth. Press enter after each input." << endl;
+				cin >> cNum >> cName >> meetDays;
+				cin.ignore();
+				cin >> units;
+				cout << "Please enter the starting time of the class. (HH:MM PM) " << endl;
+				cin >> startT;
+				cout << "Please enter the ending time of the class. (HH:MM PM)" << endl;
+				cin >> endT;
+				cout << "Please enter the starting date of the class. (MM/DD/YYYY)" << endl;
+				cin >> startD;
+				cout << "Please enter the ending date of the class. (MM/DD/YYYY)" << endl;
+				cin >> endD;
+				Course newCourse(cNum, cName, meetDays, units, startD, endD, startT, endT);
+
+				sched.AddCourse(newCourse);
+			}
+			else if (selection == '2')
+			{
+				cout << sched;
+				cout << "Please select the course you would like to remove by the number of its order in the schedule: " << endl;
+				cin >> numSelect;
+				sched.RemoveCourse(numSelect);
+			}
+			else if (selection == '3')
+			{
+				cout << sched;
+			}
+			else
+			{
+				cout << "Invalid selection." << endl;
+			}
+
+		} while (selection != 'q' || selection != 'Q');
+
+		cout << "You have quit the program. Thank you for using our services." << endl;
+		system("PAUSE");
+		return 0;
 	}
-	system("PAUSE");
-	return 0;
-}
