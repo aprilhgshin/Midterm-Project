@@ -124,19 +124,21 @@ bool CourseSchedule::checkDates(Semester s, Date start, Date end) const
 }
 
 
-void CourseSchedule::AddCourse(Course& c, Semester s, Date start, Date end)
+void CourseSchedule::AddCourse(Course& c)
 {
 
-		if (checkDates(s,start,end) == true && numCourses < maxSize)
+		if (checkDates(this->getSemester(), c.getStartDate(), c.getEndDate()) == true && numCourses < maxSize)
 		{
 			array[numCourses] = c;
 			numCourses += 1;
 		}
-		else if (checkDates(s,start,end) == false)
+		else if (checkDates(this->getSemester(), c.getStartDate(), c.getEndDate()) == false)
 		{
+			cout << "The dates you have entered are not within the semester" << endl;
 		}
 		else
 		{
+			cout << "You have exceeded the amount of courses" << endl;
 		}
 }
 

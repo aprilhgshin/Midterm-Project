@@ -36,13 +36,13 @@ double Course::getUnits()const
 {
 	return units;
 }
-void Course::getStartDate()const
+Date Course::getStartDate()const
 {
-	cout << startDate;
+	return startDate;
 }
-void Course::getEndDate()const
+Date Course::getEndDate()const
 {
-	cout << endDate;
+	return endDate;
 }
 void Course::getStartTime()const
 {

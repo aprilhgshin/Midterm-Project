@@ -74,7 +74,7 @@ using namespace std;
 				Course* nCourse = new Course(cNum, cName, meetDays, units, startD, endD, startT, endT);
 				//Course newCourse(cNum, cName, meetDays, units, startD, endD, startT, endT);
 
-				sched.AddCourse(*nCourse,semInfo,startD,endD);
+				sched.AddCourse(*nCourse);
 			}
 			else if (selection == '2')
 			{

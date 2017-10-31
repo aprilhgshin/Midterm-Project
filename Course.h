@@ -25,8 +25,8 @@ public:
 	string getCourseName()const;
 	string getMeetDays()const;
 	double getUnits()const;
-	void getStartDate()const;
-	void getEndDate()const;
+	Date getStartDate()const;
+	Date getEndDate()const;
 	void getStartTime()const;
 	void getEndTime()const;
 	Course& setCourseNum(string);
