@@ -20,31 +20,33 @@ istream& operator>>(istream& input, Time& arg)
 	if (arg.hour < 0 || arg.hour > 12)
 	{
 		arg.hour = 0;
+		cout << "Invalid hour, hour has been set to zero!\n";
 	}
 	input.ignore();
 	input >> setw(2) >> arg.minute;
 	if (arg.minute < 0 || arg.minute > 60)
 	{
 		arg.minute = 0;
+		cout << "Invalid minute, minute has been set to zero!\n";
 	}
 	input.ignore();
 	input >> setw(1) >> setting;
-	if (setting == 'P' || setting == 'p')
+	arg.hour = arg.convertToUniversal(arg.hour, setting);
+	/*if (setting == 'P' || setting == 'p')
 	{
-		if (arg.hour != 12)
-		{
-			arg.hour += 12;
-		}
+	if (arg.hour != 12)
+	{
+	arg.hour += 12;
+	}
 	}
 	if (setting == 'A' || setting == 'a')
 	{
-		if (arg.hour == 12)
-		{
-			arg.hour -= 12;
-		}
+	if (arg.hour == 12)
+	{
+	arg.hour -= 12;
 	}
-	input.ignore(2);
-
+	}*/
+	input.ignore();
 	return input;
 }
 //Constructor function to initialize private data
@@ -79,6 +81,7 @@ Time& Time::setHour(int h)
 //setMinute function is now set up to enable cascading
 Time& Time::setMinute(int m)
 {
+
 	minute = (m >= 0 && m < 24) ? m : 0;  //validates minute, if valid set to m, else set to 0
 	return *this;
 }
@@ -113,21 +116,30 @@ void Time::printStandard()const  //must be const since prototype is const
 }
 double Time::operator-(const Time& arg) const
 {
-	double hour, minute, difference;
-	string diff;
-	if (this->hour > arg.hour)
-	{
-		hour = this->hour - arg.hour;
-		minute = this->minute - arg.hour;
-	}
-	else
-	{
-		hour = arg.hour - this->hour;
-		minute = arg.minute - this->minute;
-	}
-	difference = hour + (minute / 60);
-	return difference;
 
+
+	return abs((hour - arg.hour + double(minute - arg.minute) / 60));
+
+}
+int Time::convertToUniversal(int hr, char setting)
+{
+	int universalHr = hr;
+	setting = toupper(setting);
+	if (setting == 'A')
+	{
+		if (hr == 12)
+		{
+			universalHr = hr - 12;
+		}
+	}
+	else if (setting == 'P')
+	{
+		if (hr != 12)
+		{
+			universalHr = hr + 12;
+		}
+	}
+	return universalHr;
 }
 Time::~Time()
 {

@@ -12,6 +12,7 @@ class Time
 private:
 	int hour;  //0-23 (24 hour clock format)
 	int minute; //0-59
+	int convertToUniversal(int, char);
 
 public:
 	//default constructor
