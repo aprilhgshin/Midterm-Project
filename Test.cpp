@@ -47,6 +47,7 @@ using namespace std;
 				<< "3) Print semester schedule" << endl
 				<< "q) Quit the program " << endl;
 			cin >> selection;
+			cin.ignore();
 			selection = tolower(selection);
 			if (selection == '1')
 			{
@@ -54,10 +55,13 @@ using namespace std;
 				Date startD, endD;
 				string cNum, cName, meetDays;
 				double units;
-				cout << "Please enter the course number, course name, meeting days, \nand number of "
-					<< "units the course is worth. Press enter after each input." << endl;
-				cin >> cNum >> cName >> meetDays;
-				cin.ignore();
+				cout << "Please enter the course number: " << endl;
+				getline(cin,cNum); 
+				cout << "Please enter the course name: " << endl;
+				getline(cin, cName);
+				cout << "Please enter the meeting days of the course: " << endl;
+				getline(cin,meetDays);
+				cout << "Please enter the units the course is worth: " << endl;
 				cin >> units;
 				cout << "Please enter the starting time of the class. (HH:MM PM) " << endl;
 				cin >> startT;

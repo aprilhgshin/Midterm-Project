@@ -95,9 +95,9 @@ bool CourseSchedule::checkDates(Semester s, Date start, Date end) const
 		{
 			status = true;
 		}
-		else if (end.getMonth() == s.getEndDate().getMonth() && end.getMonth() >= start.getMonth())
+		else if (end.getMonth() == s.getEndDate().getMonth() /*&& end.getMonth() >= start.getMonth()*/)
 		{
-			if (end.getDay() <= s.getEndDate().getDay() && end.getDay() >= start.getDay())
+			if (end.getDay() <= s.getEndDate().getDay()/* && end.getDay() >= start.getDay()*/)
 			{
 				status = true;
 			}
@@ -132,9 +132,11 @@ void CourseSchedule::AddCourse(Course& c, Semester s, Date start, Date end)
 			array[numCourses] = c;
 			numCourses += 1;
 		}
+		else if (checkDates(s,start,end) == false)
+		{
+		}
 		else
 		{
-			cout << "You have exceeded the max amount of courses" << endl;
 		}
 }
 
